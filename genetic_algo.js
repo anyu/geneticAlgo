@@ -38,7 +38,7 @@ function shuffle(array, populationSize) {
 
 
 // Group into fours, calculate sum of preferences
-function fitness(arrangement) {
+function computeFitness(arrangement) {
   remainder = arrangement.splice(4); // arrangement = [1,2,3,4]
 
   var sum = 0;
@@ -55,19 +55,19 @@ function fitness(arrangement) {
   return sum;
 }
 
-function runAlgo() {
+function evolve() {
   var students = parseData();
   var population = shuffle(students, 5);
 
   var fitnessScores = [];
 
   for (var i = 0; i < population.length; i++) {
-    fitnessScores.push(fitness(population[i]));
+    fitnessScores.push(computeFitness(population[i]));
   }
-  fitnessScores.sort((a, b) => {return b-a});
+  fitnessScores.sort((a, b) => { return b-a });
 
   console.log("fitnessScores", fitnessScores);
 
 }
 
-runAlgo();
+evolve();
