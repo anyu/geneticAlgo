@@ -52,7 +52,6 @@ function fitness(arrangement) {
       }
     }
   }
-  console.log("sum", sum);
   return sum;
 }
 
@@ -62,11 +61,12 @@ function runAlgo() {
 
   var fitnessScores = [];
 
-  // console.log("population", population);
   for (var i = 0; i < population.length; i++) {
     fitnessScores.push(fitness(population[i]));
   }
-  // console.log("fitnesscores", fitnessScores);
+  fitnessScores.sort((a, b) => {return b-a});
+
+  console.log("fitnessScores", fitnessScores);
 
 }
 
